@@ -40,3 +40,5 @@ Carthage
 
 .DS_Store
 docs
+
+*.xcodeproj
