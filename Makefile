@@ -30,6 +30,6 @@ delete-xcode:
 close-xcode:
 	@osascript script/close-xcode.scpt
 
-reopen: close-xcode delete-xcode xcodegen install-pods open-xcode
+reopen: close-xcode delete-xcode xcodegen open-xcode
 
 setup: setup-tools setup-git-hooks install-carthage
