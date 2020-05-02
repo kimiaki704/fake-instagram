@@ -1,4 +1,4 @@
-closeXcode("Neighba.xcworkspace")
+closeXcode("FakeInstagram.xcodeproj")
 
 on closeXcode(workspaceName)
   tell application "Xcode"
