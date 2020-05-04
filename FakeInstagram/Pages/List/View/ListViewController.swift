@@ -6,11 +6,12 @@
 //
 
 import Component
+import Model
 import UIKit
 
 final class ListViewController: UIViewController, Instantiatable {
     @IBOutlet private var collectionView: UICollectionView!
-    private var dataSource: UICollectionViewDiffableDataSource<ListCollectionViewSection, AnyHashable>!
+    private var dataSource: UICollectionViewDiffableDataSource<ListCollectionViewSection, Post>!
     var presenter: ListPresentation!
 
     override func viewDidLoad() {
@@ -32,15 +33,16 @@ extension ListViewController {
     }
 
     func performSnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<ListCollectionViewSection, AnyHashable>()
+        var snapshot = NSDiffableDataSourceSnapshot<ListCollectionViewSection, Post>()
         snapshot.appendSections([.main])
-        snapshot.appendItems([])
+        snapshot.appendItems(Post.mockPosts())
         dataSource.apply(snapshot, animatingDifferences: false)
     }
 
     func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<ListCollectionViewSection, AnyHashable>(collectionView: collectionView) { collectionView, indexPath, item -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<ListCollectionViewSection, Post>(collectionView: collectionView) { collectionView, indexPath, item -> UICollectionViewCell? in
             let cell: ListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+            cell.setup(item)
             return cell
         }
     }

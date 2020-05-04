@@ -5,7 +5,7 @@
 //  Created by 鈴木 公章 on 2020/05/05.
 //
 
-public struct User {
+public struct User: Equatable {
     public var id: String
     public var name: String
     public var email: String
@@ -22,6 +22,14 @@ public struct User {
         self.email = email
         self.imageURL = imageURL
         self.headerImageURL = headerImageURL
+    }
+
+    public static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.id == rhs.id
+            && lhs.name == rhs.name
+            && lhs.email == rhs.email
+            && lhs.imageURL == rhs.imageURL
+            && lhs.headerImageURL == rhs.headerImageURL
     }
 
     static func mockUsers() -> [User] {

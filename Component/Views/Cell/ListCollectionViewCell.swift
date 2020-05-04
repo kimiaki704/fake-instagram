@@ -16,8 +16,6 @@ public class ListCollectionViewCell: UICollectionViewCell, NibLoadableView, Reus
     @IBOutlet private var textLabel: UILabel!
     @IBOutlet private var likeButton: UIButton!
     @IBOutlet private var commentButton: UIButton!
-    public var likeButtonTappedAction: ((UICollectionViewCell) -> Void)?
-    public var commentButtonTappedAction: ((UICollectionViewCell) -> Void)?
 
     public func setup(_ post: Post) {
         userImageView.loadImage(post.user.imageURL, processors: [.circle])
@@ -33,6 +31,6 @@ public class ListCollectionViewCell: UICollectionViewCell, NibLoadableView, Reus
 }
 
 extension ListCollectionViewCell {
-    @IBAction private func likeButtonTapped(_ sender: UIButton) { likeButtonTappedAction?(self) }
-    @IBAction private func commentButtonTapped(_ sender: UIButton) { commentButtonTappedAction?(self) }
+    @IBAction private func likeButtonTapped(_ sender: UIButton) {}
+    @IBAction private func commentButtonTapped(_ sender: UIButton) {}
 }

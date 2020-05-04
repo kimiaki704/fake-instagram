@@ -7,7 +7,7 @@
 
 import UIKit
 
-public struct Post {
+public struct Post: Hashable {
     public var id: String
     public var user: User
     public var imageURL: String?
@@ -32,7 +32,10 @@ public struct Post {
         self.createdAt = createdAt
     }
 
-    static func mockPosts() -> [Post] {
+    public func hash(into hasher: inout Hasher) { hasher.combine(id) }
+    public static func == (lhs: Post, rhs: Post) -> Bool { return lhs.id == rhs.id }
+
+    public static func mockPosts() -> [Post] {
         [Post(id: "1",
               user: User.mockUsers()[0],
               imageURL: "https://d1d37e9z843vy6.cloudfront.net/jp/images/3551155/700/5ce9184effd0f73eb37bab3ff396a2dff87d0bb5.jpeg",
