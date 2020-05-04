@@ -14,9 +14,19 @@ class ListRouter: ListWireframe {
 
     static func assembleModule() -> UIViewController {
         let view = appResolver.resolveListViewController()
+        let presenter = appResolver.resolveListPresenter()
+        let interactor = appResolver.resolveListInteractor()
         let router = appResolver.resolveListRouter()
 
         let navigation = UINavigationController(rootViewController: view)
+
+        view.presenter = presenter
+
+        presenter.view = view
+        presenter.interactor = interactor
+        presenter.router = router
+
+        interactor.output = presenter
 
         router.viewController = view
 
