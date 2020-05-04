@@ -21,3 +21,8 @@ targets:
     platform: iOS
     deploymentTarget: "13.0"
     sources: FakeInstagram
+    preBuildScripts:
+      - name: "[SwiftLint] Run Script"
+        script: "make swiftlint"
+      - name: "[SwiftFormat] Run Script"
+        script: "make swiftformat-diff"

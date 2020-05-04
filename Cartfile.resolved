@@ -1,2 +1,4 @@
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseDatabaseBinary.json" "6.23.0"
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseStorageBinary.json" "6.23.0"
+github "Alamofire/Alamofire" "5.1.0"
+github "kean/Nuke" "8.4.1"
