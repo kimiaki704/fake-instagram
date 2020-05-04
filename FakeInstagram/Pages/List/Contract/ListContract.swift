@@ -5,6 +5,7 @@
 //  Created by 鈴木 公章 on 2020/05/04.
 //
 
+import Model
 import UIKit
 
 protocol ListView: class {
@@ -21,9 +22,13 @@ protocol ListPresentation: class {
 
 protocol ListUseCase: class {
     var output: ListInteractorOutput! { get set }
+    func fetchPosts()
 }
 
-protocol ListInteractorOutput: class {}
+protocol ListInteractorOutput: class {
+    func postsFetched(_ articles: [Post])
+    func postsFetchFailed(_ error: Error)
+}
 
 protocol ListWireframe: class {
     static var appResolver: Resolver { get }
