@@ -16,11 +16,20 @@ settings:
     BUILD_VERSION: 1
     OTHER_LDFLAGS: $(OTHER_LDFLAGS) -ObjC
 targets:
+  Component:
+    type: framework
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources: Component
+    dependencies:
+      - carthage: Nuke
   FakeInstagram:
     type: application
     platform: iOS
     deploymentTarget: "13.0"
     sources: FakeInstagram
+    dependencies:
+      - target: Component
     preBuildScripts:
       - name: "[SwiftLint] Run Script"
         script: "make swiftlint"
