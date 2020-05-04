@@ -26,7 +26,7 @@ protocol ListUseCase: class {
 }
 
 protocol ListInteractorOutput: class {
-    func postsFetched(_ articles: [Post])
+    func postsFetched(_ posts: [Post])
     func postsFetchFailed(_ error: Error)
 }
 
