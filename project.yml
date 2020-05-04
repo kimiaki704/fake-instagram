@@ -30,8 +30,14 @@ targets:
     sources: FakeInstagram
     dependencies:
       - target: Component
+      - target: Model
     preBuildScripts:
       - name: "[SwiftLint] Run Script"
         script: "make swiftlint"
       - name: "[SwiftFormat] Run Script"
         script: "make swiftformat-diff"
+  Model:
+    type: framework
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources: Model
