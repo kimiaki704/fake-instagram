@@ -11,7 +11,15 @@ class ListPresenter: ListPresentation {
     var view: ListView?
     var interactor: ListUseCase!
     var router: ListWireframe!
-    var posts: [Post] = []
+    var posts: [Post] = [] {
+        didSet {
+            if posts.count > 0 {
+                view?.showList(posts)
+            } else {
+                view?.showNoContent()
+            }
+        }
+    }
 
     func viewDidLoad() {
         interactor.fetchPosts()
@@ -20,7 +28,7 @@ class ListPresenter: ListPresentation {
 
 extension ListPresenter: ListInteractorOutput {
     func postsFetched(_ posts: [Post]) {
-        print("💩 posts : \(posts) \n")
+        self.posts = posts
     }
 
     func postsFetchFailed(_ error: Error) {

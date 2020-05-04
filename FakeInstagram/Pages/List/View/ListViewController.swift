@@ -13,10 +13,17 @@ final class ListViewController: UIViewController, Instantiatable {
     @IBOutlet private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<ListCollectionViewSection, Post>!
     var presenter: ListPresentation!
+    var posts: [Post] = [] {
+        didSet {
+            performSnapshot()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupCollectionView()
+        configureDataSource()
         presenter.viewDidLoad()
     }
 
@@ -28,14 +35,14 @@ final class ListViewController: UIViewController, Instantiatable {
 extension ListViewController {
     private func setupCollectionView() {
         collectionView.compositionalLayout(itemWidthDimension: .fractionalWidth(1.0),
-                                           itemHeightDimension: .estimated(406))
+                                           itemHeightDimension: .estimated(480))
         collectionView.register(ListCollectionViewCell.self)
     }
 
     func performSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<ListCollectionViewSection, Post>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(Post.mockPosts())
+        snapshot.appendItems(posts)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
 
@@ -48,4 +55,12 @@ extension ListViewController {
     }
 }
 
-extension ListViewController: ListView {}
+extension ListViewController: ListView {
+    func showList(_ posts: [Post]) {
+        self.posts = posts
+    }
+
+    func showNoContent() {
+        print("💩 no content \n")
+    }
+}

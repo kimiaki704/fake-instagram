@@ -10,6 +10,9 @@ import UIKit
 
 protocol ListView: class {
     var presenter: ListPresentation! { get set }
+
+    func showList(_ posts: [Post])
+    func showNoContent()
 }
 
 protocol ListPresentation: class {

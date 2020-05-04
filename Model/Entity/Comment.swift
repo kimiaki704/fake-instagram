@@ -28,11 +28,11 @@ public struct Comment {
     }
 
     static func mockComments() -> [Comment] {
-        [Comment(id: "1", postID: "1", user: User.mockUsers()[0], text: "コメント１。コメント１。コメント１。", likeCount: 12, createdAt: "2020-05-05 15:00:00"),
-         Comment(id: "2", postID: "2", user: User.mockUsers()[0], text: "コメント２。コメント２。コメント２。コメント２。コメント２。コメント２。", likeCount: 34, createdAt: "2020-05-05 16:00:00"),
-         Comment(id: "3", postID: "3", user: User.mockUsers()[0], text: "コメント３。", likeCount: 56, createdAt: "2020-05-05 17:00:00"),
-         Comment(id: "4", postID: "3", user: User.mockUsers()[1], text: "コメント４。コメント４。コメント４。コメント４。コメント４。", likeCount: 78, createdAt: "2020-05-05 18:00:00"),
-         Comment(id: "5", postID: "3", user: User.mockUsers()[1], text: "コメント５。コメント５。", likeCount: 90, createdAt: "2020-05-05 19:00:00"),
-         Comment(id: "6", postID: "4", user: User.mockUsers()[1], text: "コメント６。コメント６。コメント６。コメント６。コメント６。コメント６。コメント６。", likeCount: 150, createdAt: "2020-05-05 20:00:00")]
+        [Comment(id: "1", postID: "1", user: User.mockUsers()[0], text: "コメント１。コメント１。コメント１。", likeCount: 12, createdAt: "15:00 2020-05-05"),
+         Comment(id: "2", postID: "2", user: User.mockUsers()[0], text: "コメント２。コメント２。コメント２。コメント２。コメント２。コメント２。", likeCount: 34, createdAt: "16:00 2020-05-05"),
+         Comment(id: "3", postID: "3", user: User.mockUsers()[0], text: "コメント３。", likeCount: 56, createdAt: "17:00 2020-05-05"),
+         Comment(id: "4", postID: "3", user: User.mockUsers()[1], text: "コメント４。コメント４。コメント４。コメント４。コメント４。", likeCount: 78, createdAt: "18:00 2020-05-05"),
+         Comment(id: "5", postID: "3", user: User.mockUsers()[1], text: "コメント５。コメント５。", likeCount: 90, createdAt: "19:00 2020-05-05"),
+         Comment(id: "6", postID: "4", user: User.mockUsers()[1], text: "コメント６。コメント６。コメント６。コメント６。コメント６。コメント６。コメント６。", likeCount: 150, createdAt: "20:00 2020-05-05")]
     }
 }

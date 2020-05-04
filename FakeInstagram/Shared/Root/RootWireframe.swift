@@ -8,6 +8,5 @@
 import UIKit
 
 protocol RootWireframe: class {
-    static var appResolver: Resolver { get }
     func presentListViewController(in window: UIWindow)
 }

@@ -22,7 +22,7 @@ public class ListCollectionViewCell: UICollectionViewCell, NibLoadableView, Reus
         userNameLabel.text = post.user.name
         createdAtLabel.text = post.createdAt
         textLabel.text = post.text
-        likeButton.setTitle(" Likes \(post.likeCount)", for: .normal)
+        likeButton.setTitle("\(post.likeCount) Likes", for: .normal)
         if post.isLike { likeButton.tintColor = .red }
         if !post.isLike { likeButton.tintColor = .darkText }
         guard let imageURL = post.imageURL else { return }

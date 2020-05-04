@@ -10,5 +10,7 @@ import Model
 class ListInteractor: ListUseCase {
     weak var output: ListInteractorOutput!
 
-    func fetchPosts() { print("💩 fetch \n") }
+    func fetchPosts() {
+        output.postsFetched(Post.mockPosts())
+    }
 }
