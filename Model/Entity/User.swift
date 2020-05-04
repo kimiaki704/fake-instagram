@@ -11,7 +11,6 @@ public struct User {
     public var email: String
     public var imageURL: String
     public var headerImageURL: String
-    public var interestId: [String] = []
 
     init(id: String,
          fullName: String,
