@@ -50,8 +50,25 @@ extension ListViewController {
         dataSource = UICollectionViewDiffableDataSource<ListCollectionViewSection, Post>(collectionView: collectionView) { collectionView, indexPath, item -> UICollectionViewCell? in
             let cell: ListCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.setup(item)
+            cell.likeButtonTapped = { [unowned self] in self.likeButtonTapped(indexPath.row) }
+            cell.commentButtonTapped = { [unowned self] in self.commentButtonTapped(indexPath.row) }
             return cell
         }
+    }
+
+    private func likeButtonTapped(_ cellRow: Int) {
+        if posts[cellRow].isLike {
+            posts[cellRow].likeCount -= 1
+        } else {
+            posts[cellRow].likeCount += 1
+        }
+        posts[cellRow].isLike.toggle()
+        performSnapshot()
+    }
+
+    private func commentButtonTapped(_ cellRow: Int) {
+        let post = posts[cellRow]
+        print("💩 Router push : \(post.id) \n")
     }
 }
 
