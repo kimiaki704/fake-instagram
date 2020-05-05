@@ -24,6 +24,7 @@ final class PostViewController: UIViewController, Instantiatable {
         super.viewDidLoad()
         setupUI()
         setupTextView()
+        pickerSetup()
         imageViewSetup()
     }
 
@@ -91,7 +92,15 @@ final class PostViewController: UIViewController, Instantiatable {
         textView.becomeFirstResponder()
     }
 
-    @objc private func pickerButtonTapped() {}
+    private func pickerSetup() {
+        let picker = PostRouter.appResolver.resolveUIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .photoLibrary
+    }
+
+    @objc private func pickerButtonTapped() {
+        presenter.presentPickerController()
+    }
 }
 
 extension PostViewController: PostView {
@@ -104,6 +113,16 @@ extension PostViewController: PostView {
     }
 }
 
+// MARK: ButtonAction
+
+extension PostViewController {
+    @IBAction private func removeButtonTapped(_ sender: UIButton) {
+        imagePreview.image = nil
+        imagePreview.isHidden = true
+        imageRemoveButton.isHidden = true
+    }
+}
+
 // MARK: UITextViewDelegate
 
 extension PostViewController: UITextViewDelegate {
@@ -111,5 +130,26 @@ extension PostViewController: UITextViewDelegate {
         self.textView.sizeToFit()
         self.textView.togglePlaceholder()
         view.layoutIfNeeded()
+    }
+}
+
+// MARK: Picker Delegate
+
+extension PostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            #warning("TODO: post用に入れる")
+            #warning("TODO: この計算をExtensionにしたい")
+            let ratio = originalImage.size.height / originalImage.size.width
+            imagePreviewHeightConstraint.constant = imagePreview.bounds.width * ratio
+            imagePreview.image = originalImage
+            imagePreview.isHidden = false
+            imageRemoveButton.isHidden = false
+        }
+        presenter.dismissPickerController()
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        presenter.dismissPickerController()
     }
 }

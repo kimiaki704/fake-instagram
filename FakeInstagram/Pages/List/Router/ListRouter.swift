@@ -30,7 +30,7 @@ class ListRouter: ListWireframe {
         return navigation
     }
 
-    func presentPostViewController() {
+    func pushPostViewController() {
         let vc = PostRouter.assembleModule()
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }

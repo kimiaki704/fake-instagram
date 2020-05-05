@@ -9,6 +9,12 @@ import Component
 import UIKit
 
 extension Resolver {
+    func resolveUIImagePickerController() -> UIImagePickerController {
+        container.singleton {
+            UIImagePickerController()
+        }
+    }
+
     func resolveListViewController() -> ListViewController {
         ListViewController.instantiate()
     }

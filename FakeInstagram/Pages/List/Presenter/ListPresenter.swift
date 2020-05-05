@@ -26,7 +26,7 @@ class ListPresenter: ListPresentation {
     }
 
     func pushPostViewController() {
-        router.presentPostViewController()
+        router.pushPostViewController()
     }
 }
 

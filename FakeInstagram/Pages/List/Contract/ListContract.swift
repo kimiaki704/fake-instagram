@@ -38,5 +38,5 @@ protocol ListWireframe: class {
     static var appResolver: Resolver { get }
     var viewController: UIViewController? { get set }
     static func assembleModule() -> UIViewController
-    func presentPostViewController()
+    func pushPostViewController()
 }

@@ -27,4 +27,13 @@ class PostRouter: PostWireframe {
 
         return view
     }
+
+    func presentPickerController() {
+        let vc = PostRouter.appResolver.resolveUIImagePickerController()
+        viewController?.navigationController?.present(vc, animated: true, completion: nil)
+    }
+
+    func dismissPickerController() {
+        viewController?.dismiss(animated: true, completion: nil)
+    }
 }

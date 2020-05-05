@@ -58,6 +58,9 @@
                                                 <state key="normal" image="multiply.circle.fill" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="removeButtonTapped:" destination="b1M-sZ-5xL" eventType="touchUpInside" id="VkT-sW-b4a"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

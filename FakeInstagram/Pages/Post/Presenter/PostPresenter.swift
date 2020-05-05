@@ -15,6 +15,14 @@ class PostPresenter: PostPresentation {
     func post(_ post: Post) {
         interactor.post(post)
     }
+
+    func presentPickerController() {
+        router.presentPickerController()
+    }
+
+    func dismissPickerController() {
+        router.dismissPickerController()
+    }
 }
 
 extension PostPresenter: PostInteractorOutput {
