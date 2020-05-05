@@ -20,16 +20,16 @@ protocol PostPresentation: class {
     var interactor: PostUseCase! { get set }
     var router: PostWireframe! { get set }
 
-    func viewDidLoad()
+    func post(_ post: Post)
 }
 
 protocol PostUseCase: class {
     var output: PostInteractorOutput! { get set }
-    func post()
+    func post(_ post: Post)
 }
 
 protocol PostInteractorOutput: class {
-    func posted(_ post: Post)
+    func posted(_ string: String)
     func postFailed(_ error: Error)
 }
 
