@@ -11,8 +11,8 @@ import UIKit
 protocol PostView: class {
     var presenter: PostPresentation! { get set }
 
-    func posted(_ post: Post)
-    func postFailed()
+    func posted(_ string: String)
+    func postFailed(_ error: Error)
 }
 
 protocol PostPresentation: class {

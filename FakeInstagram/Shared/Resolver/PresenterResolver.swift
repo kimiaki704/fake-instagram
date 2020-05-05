@@ -9,4 +9,8 @@ extension Resolver {
     func resolveListPresenter() -> ListPresenter {
         ListPresenter()
     }
+
+    func resolvePostPresenter() -> PostPresenter {
+        PostPresenter()
+    }
 }

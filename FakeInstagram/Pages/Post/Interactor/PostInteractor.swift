@@ -10,7 +10,9 @@ import Model
 class PostInteractor: PostUseCase {
     var output: PostInteractorOutput!
 
-    func post() {
-        output.posted(Post.mockPosts()[0])
+    func post(_ post: Post) {
+        #warning("TODO: post reqest")
+        print("💩 post : \(post) \n")
+        output.posted("success")
     }
 }

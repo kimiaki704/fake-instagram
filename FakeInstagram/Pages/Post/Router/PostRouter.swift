@@ -14,8 +14,15 @@ class PostRouter: PostWireframe {
 
     static func assembleModule() -> UIViewController {
         let view = appResolver.resolvePostViewController()
+        let presenter = appResolver.resolvePostPresenter()
+        let interactor = appResolver.resolvePostInteractor()
         let router = appResolver.resolvePostRouter()
 
+        view.presenter = presenter
+        presenter.view = view
+        presenter.interactor = interactor
+        presenter.router = router
+        interactor.output = presenter
         router.viewController = view
 
         return view

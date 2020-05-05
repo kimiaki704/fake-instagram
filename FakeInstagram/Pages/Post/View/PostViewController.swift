@@ -5,7 +5,19 @@
 //  Created by 鈴木 公章 on 2020/05/05.
 //
 
-import UIKit
 import Component
+import UIKit
 
-final class PostViewController: UIViewController, Instantiatable {}
+final class PostViewController: UIViewController, Instantiatable {
+    var presenter: PostPresentation!
+}
+
+extension PostViewController: PostView {
+    func posted(_ string: String) {
+        print("💩 success : \(string) \n")
+    }
+
+    func postFailed(_ error: Error) {
+        print("💩 error : \(error) \n")
+    }
+}

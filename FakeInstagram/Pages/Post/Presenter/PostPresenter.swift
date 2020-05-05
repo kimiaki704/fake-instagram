@@ -19,10 +19,10 @@ class PostPresenter: PostPresentation {
 
 extension PostPresenter: PostInteractorOutput {
     func posted(_ string: String) {
-        print("💩 success : \(string) \n")
+        view?.posted(string)
     }
 
     func postFailed(_ error: Error) {
-        print("💩 error : \(error) \n")
+        view?.postFailed(error)
     }
 }
