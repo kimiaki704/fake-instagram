@@ -9,4 +9,8 @@ extension Resolver {
     func resolveListInteractor() -> ListInteractor {
         ListInteractor()
     }
+
+    func resolvePostInteractor() -> PostInteractor {
+        PostInteractor()
+    }
 }

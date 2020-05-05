@@ -12,4 +12,8 @@ extension Resolver {
     func resolveListViewController() -> ListViewController {
         ListViewController.instantiate()
     }
+
+    func resolvePostViewController() -> PostViewController {
+        PostViewController.instantiate()
+    }
 }

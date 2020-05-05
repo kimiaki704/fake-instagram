@@ -9,4 +9,8 @@ extension Resolver {
     func resolveListRouter() -> ListRouter {
         ListRouter()
     }
+
+    func resolvePostRouter() -> PostRouter {
+        PostRouter()
+    }
 }
