@@ -6,6 +6,7 @@
 //
 
 import Component
+import Model
 import UIKit
 
 final class PostViewController: UIViewController, Instantiatable {
@@ -16,11 +17,14 @@ final class PostViewController: UIViewController, Instantiatable {
     @IBOutlet private var imagePreview: UIImageView!
     @IBOutlet private var imagePreviewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private var imageRemoveButton: UIButton!
+    var rightBarButtonView: RightBarButtonView!
     var presenter: PostPresentation!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupTextView()
+        imageViewSetup()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +48,50 @@ final class PostViewController: UIViewController, Instantiatable {
 
     private func setupUI() {
         title = "Post"
+        rightBarButtonView = RightBarButtonView.loadViewFromNib()
+        rightBarButtonView.setTitle("Post")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBarButtonView)
+        rightBarButtonView.actionButtonTapped = { [unowned self] in self.rightBarButtonTapped() }
     }
+
+    private func rightBarButtonTapped() {
+        presenter.post(Post.mockPosts()[0])
+    }
+
+    private func imageViewSetup() {
+        #warning("TODO: UIImageを丸にするのがベストかな")
+        imagePreview.layer.cornerRadius = 10
+        imagePreview.layer.masksToBounds = true
+        userImageView.loadImage(Post.mockPosts()[0].imageURL!, processors: [.circle])
+
+        imagePreview.isHidden = true
+        imageRemoveButton.isHidden = true
+    }
+
+    #warning("TODO: 外部で設定したい")
+    #warning("TODO: ここでおそくなってる！")
+    private func setupTextView() {
+        let toolBar: UIView = UIView()
+        toolBar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 40)
+        toolBar.backgroundColor = .white
+
+        let selectPictureButton: UIButton = UIButton(type: .system)
+        selectPictureButton.frame = CGRect(x: 5, y: 0, width: 40, height: 40)
+        selectPictureButton.setImage(UIImage(systemName: "photo"), for: .normal)
+        selectPictureButton.tintColor = UIColor(hex: "00FF7A")
+        selectPictureButton.addTarget(self, action: #selector(pickerButtonTapped), for: .touchUpInside)
+        toolBar.addSubview(selectPictureButton)
+
+        let separater: UIView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 0.5))
+        separater.backgroundColor = .gray
+        toolBar.addSubview(separater)
+
+        textView.inputAccessoryView = toolBar
+        textView.delegate = self
+        textView.becomeFirstResponder()
+    }
+
+    @objc private func pickerButtonTapped() {}
 }
 
 extension PostViewController: PostView {
@@ -54,5 +101,15 @@ extension PostViewController: PostView {
 
     func postFailed(_ error: Error) {
         print("💩 error : \(error) \n")
+    }
+}
+
+// MARK: UITextViewDelegate
+
+extension PostViewController: UITextViewDelegate {
+    public func textViewDidChange(_ textView: UITextView) {
+        self.textView.sizeToFit()
+        self.textView.togglePlaceholder()
+        view.layoutIfNeeded()
     }
 }
