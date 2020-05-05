@@ -12,7 +12,7 @@ final class PostViewController: UIViewController, Instantiatable {
     @IBOutlet private var userImageView: UIImageView!
     @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet private var scrollViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet private var textView: UITextView!
+    @IBOutlet private var textView: PlaceholderTextView!
     @IBOutlet private var imagePreview: UIImageView!
     @IBOutlet private var imagePreviewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private var imageRemoveButton: UIButton!

@@ -37,7 +37,7 @@
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="ポチる？"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="入力して"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Si-4W-KuC">
@@ -99,7 +99,7 @@
                         <outlet property="imageRemoveButton" destination="0RO-Be-Mv9" id="0V8-G9-xdG"/>
                         <outlet property="scrollView" destination="0ke-Fe-Vne" id="rec-Wj-WUS"/>
                         <outlet property="scrollViewBottomConstraint" destination="0ee-8q-t3k" id="0hK-gw-U5J"/>
-                        <outlet property="textView" destination="tD0-Md-rcq" id="pWf-mR-9RA"/>
+                        <outlet property="textView" destination="tD0-Md-rcq" id="sQa-QF-6NE"/>
                         <outlet property="userImageView" destination="hB0-0Q-NeF" id="kkH-FE-aTo"/>
                     </connections>
                 </viewController>
