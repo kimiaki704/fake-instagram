@@ -33,6 +33,12 @@ final class ListViewController: UIViewController, Instantiatable {
 }
 
 extension ListViewController {
+    @IBAction private func pushPostViewButtonTapped(_ sender: UIButton) {
+        print("💩 push postView \n")
+    }
+}
+
+extension ListViewController {
     private func setupCollectionView() {
         collectionView.compositionalLayout(itemWidthDimension: .fractionalWidth(1.0),
                                            itemHeightDimension: .estimated(480))

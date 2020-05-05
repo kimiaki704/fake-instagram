@@ -26,13 +26,41 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHT-Ek-Ax1" customClass="CircleButton" customModule="Component">
+                                <rect key="frame" x="338" y="786" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="ITw-XS-QTI"/>
+                                    <constraint firstAttribute="height" constant="60" id="O3t-z9-yZk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="plus" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large" weight="bold">
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    </preferredSymbolConfiguration>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonBackgroundColor">
+                                        <color key="value" red="0.0" green="1" blue="0.47999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pushPostViewButtonTapped:" destination="Sc9-ul-PNa" eventType="touchUpInside" id="ywK-ES-KtN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="JlA-EB-Mq0" firstAttribute="top" secondItem="RWw-fh-GrD" secondAttribute="top" id="4Ma-Pu-Lbf"/>
+                            <constraint firstItem="RWw-fh-GrD" firstAttribute="trailing" secondItem="NHT-Ek-Ax1" secondAttribute="trailing" constant="16" id="FCC-7d-VMw"/>
                             <constraint firstItem="RWw-fh-GrD" firstAttribute="bottom" secondItem="JlA-EB-Mq0" secondAttribute="bottom" id="IWi-ry-GDx"/>
                             <constraint firstItem="RWw-fh-GrD" firstAttribute="trailing" secondItem="JlA-EB-Mq0" secondAttribute="trailing" id="MMU-WE-Cfi"/>
                             <constraint firstItem="JlA-EB-Mq0" firstAttribute="leading" secondItem="RWw-fh-GrD" secondAttribute="leading" id="Rfy-2z-9GG"/>
+                            <constraint firstItem="RWw-fh-GrD" firstAttribute="bottom" secondItem="NHT-Ek-Ax1" secondAttribute="bottom" constant="16" id="bET-fL-m6I"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RWw-fh-GrD"/>
                     </view>
@@ -45,4 +73,7 @@
             <point key="canvasLocation" x="7" y="37"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
 </document>
