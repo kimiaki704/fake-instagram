@@ -24,6 +24,10 @@ class ListPresenter: ListPresentation {
     func viewDidLoad() {
         interactor.fetchPosts()
     }
+
+    func pushPostViewController() {
+        router.presentPostViewController()
+    }
 }
 
 extension ListPresenter: ListInteractorOutput {

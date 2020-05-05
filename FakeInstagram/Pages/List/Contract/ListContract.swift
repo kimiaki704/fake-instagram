@@ -21,6 +21,7 @@ protocol ListPresentation: class {
     var router: ListWireframe! { get set }
 
     func viewDidLoad()
+    func pushPostViewController()
 }
 
 protocol ListUseCase: class {
@@ -37,4 +38,5 @@ protocol ListWireframe: class {
     static var appResolver: Resolver { get }
     var viewController: UIViewController? { get set }
     static func assembleModule() -> UIViewController
+    func presentPostViewController()
 }

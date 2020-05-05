@@ -10,6 +10,15 @@ import UIKit
 
 final class PostViewController: UIViewController, Instantiatable {
     var presenter: PostPresentation!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+    }
+
+    private func setupUI() {
+        title = "Post"
+    }
 }
 
 extension PostViewController: PostView {

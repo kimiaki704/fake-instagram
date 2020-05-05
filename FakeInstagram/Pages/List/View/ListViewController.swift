@@ -34,7 +34,7 @@ final class ListViewController: UIViewController, Instantiatable {
 
 extension ListViewController {
     @IBAction private func pushPostViewButtonTapped(_ sender: UIButton) {
-        print("💩 push postView \n")
+        presenter.pushPostViewController()
     }
 }
 

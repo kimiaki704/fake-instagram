@@ -18,6 +18,7 @@ class ListRouter: ListWireframe {
         let interactor = appResolver.resolveListInteractor()
         let router = appResolver.resolveListRouter()
         let navigation = UINavigationController(rootViewController: view)
+        navigation.navigationBar.tintColor = UIColor(hex: "00FF7A")
 
         view.presenter = presenter
         presenter.view = view
@@ -27,5 +28,10 @@ class ListRouter: ListWireframe {
         router.viewController = view
 
         return navigation
+    }
+
+    func presentPostViewController() {
+        let vc = PostRouter.assembleModule()
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
